@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Matcher</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: radial-gradient(circle 248px at center, #40edf6 0%, #49d1f3 47%, #46aef7 100%);       
+                display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .container {
+            background: rgba(237, 234, 234, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            width: 400px;
+            transition: transform 0.5s;
+        }
+
+        .container:hover {
+            transform: translateY(-15px);
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .text-field {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size:22px;
+            outline: none;
+            transition: border-color 0.3s;
+            background: rgba(117, 115, 115, 0.2);
+            color: #fff;
+        }
+
+        .text-field:hover {
+            border:0.5px solid #065aae;
+        }
+        .result {
+            margin-top: 30px;
+            font-size:2.2rem;
+            color: #fff;
+        }
+        .btn {
+            background-color: #065aae;
+            color: #fff;
+            width: 160px;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            margin-left: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #065baf , #43cea2 );
+            transform: scale(1.05);
+        }
+        @media screen and (max-width:480px) {
+    
+            .container{
+                margin-top: 40px;
+                width: 70vw;
+                height: 80vh;
+            }
+            
+           .heading{
+                font-size: 6.9vw;
+            }
+        
+        
+             
+            .text-field{
+            font-size: 3.3vw;
+        }
+        
+        .btn{
+            font-size: 3.2vw;
+            width: 140px;
+            height: 50px;
+        }
+        
+        }
+        
+        @media screen and (min-width:481px) and (max-width:720px) {
+              
+            .container{
+                width: 70vw;
+                height: 75vh;
+            }
+            
+            .heading{
+                font-size: 4.9vw;
+            }
+             
+       .text-field{
+            font-size: 3.3vw;
+        }
+        
+        .btn{
+            font-size: 3.2vw;
+            width: 150px;
+            height: 50px;
+        }
+        
+        }
+        
+        
+        
+        
+        @media screen and (min-width:721px) and (max-width:1030px) {
+              
+            .container{
+                width: 60vw;
+                height: 75vh;
+            }
+            
+            .heading{
+                font-size: 3.3vw;
+            }
+             
+        .text-field{
+            font-size: 2.3vw;
+        }
+        
+        .btn{
+            font-size: 2vw;
+            width:140px;
+            margin-left: 40px;
+          
+        }
+        
+        }
+        </style>
+        </head>
+
+       
+
+    <div class="container">
+        <h1 class="heading">TextMatcher-Mate</h1>
+        <textarea id="text1" class="text-field" placeholder="Enter First Text"></textarea>
+        <textarea id="text2" class="text-field" placeholder="Enter Second Text"></textarea>
+        <div class="result" id="result">Result: </div>
+        <br><br>
+        <button class="btn" type="button" onclick="checkMatch()">Check Match</button>
+        <button class="btn" type="button" onclick="resetMatch()">Reset</button>
+    
+    </div>
+    <script>
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const result = document.getElementById('result');
+
+        function checkMatch() {
+            if (text1.value === text2.value) {
+                result.innerText = 'Result: Texts Match!';
+                result.style.color = "green"
+            } else {
+                result.innerText = 'Result: Texts Does Not Match!';
+                 result.style.color = "red"
+            }
+        }
+
+        function resetMatch() {
+            text1.value = '';
+            text2.value = '';
+            result.innerText = 'Result: ';
+        }
+    </script>
+    
+</body>
+</html>
